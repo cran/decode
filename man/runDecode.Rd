@@ -2,7 +2,7 @@
 % Please edit documentation in R/Decode.r
 \name{runDecode}
 \alias{runDecode}
-\title{Differential Co-expression and Differential Expression Analysis}
+\title{Differential Co-Expression and Differential Expression Analysis}
 \usage{
 runDecode(geneSetInputFile, geneExpressionFile)
 }
@@ -96,6 +96,11 @@ runDecode("/extdata/geneSet.txt","/extdata/Expression_data_1400genes.txt")
 The sample data with 1400 genes takes 16 minutes to complete. (Computer used: An Intel Core i7-4600 processor, 2.69 GHz, 8 GB RAM)
 }
 \examples{
-runDecode("/extdata/geneSet.txt","/extdata/Expression_data_50genes.txt")
+\dontrun{
+path = system.file('extdata', package='decode')
+geneSetInputFile = file.path(path, "geneSet.txt")
+geneExpressionFile = file.path(path, "Expression_data_50genes.txt")
+runDecode(geneSetInputFile, geneExpressionFile)
+}
 }
 

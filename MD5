@@ -1,6 +1,6 @@
-c14987caa6bbb9e9404792ae35b743b7 *DESCRIPTION
+f384a86ff05b2bd76cc76dfd2401b7a1 *DESCRIPTION
 53f34ac80067cb6f8df5ba2c11eb9b17 *NAMESPACE
-a4c7a5a031efca2e4b8ba47e31b0b3c6 *R/Decode.r
+01995b77bcad5073de3ddfbc1be81bf2 *R/Decode.r
 1a10bda6c006c12a871247e2d95a2f9e *R/getAssoGeneSetPValue.r
 c4e6b924ed8fcea3d9f4e3964830449f *R/getBestAssociatedGeneSet.r
 bc400e138ada9872ff3fba66acaacc2b *R/getBonferroniPValue.r
@@ -10,6 +10,10 @@ c44b5ffe298a0a55825b36bb908d0f6d *R/getPartitionIndex.r
 85cba48b248cafdfcfb3ce4c5e6bc102 *R/getPathway.r
 1329a56bb236bfff070b1ce0ab416935 *R/openFileToWrite.r
 610f49fd2f2bc7f08a723d9fb8d4f6ea *R/sumResult_MinGain.r
+ec90de5fd68a1c84ea9a2a56c329b04d *build/vignette.rds
+5736ef6d8ab4272b98c4a2b273721a69 *inst/doc/v.R
+2c5c93c64e5c54e85b95c5e8dd5ff8ca *inst/doc/v.Rmd
+214affa840b437dfbef97b26d5115a09 *inst/doc/v.html
 09a6995f6b7276df8efdcd09694dcc46 *inst/extdata/Expression_data_1400genes.txt
 9a8807aaff9f389a284874046e734940 *inst/extdata/Expression_data_50genes.txt
 4d60bcaef7e4ff49593ca985e9d165e3 *inst/extdata/geneSet.txt
@@ -21,5 +25,6 @@ e103eeb2a71c869c1c504a997da7db87 *man/getFDR.Rd
 43ab21bf8fc242136841e4a050326e3a *man/getPartitionIndex.Rd
 39f5da27d17f28dda5250e273b060a51 *man/getPathway.Rd
 1ff4ed61bb4c87f7730773c03faeff4d *man/openFileToWrite.Rd
-158ee7c5d278d458c5be3b56183250f6 *man/runDecode.Rd
+2cc39209013f040db8c9edc44dd3c080 *man/runDecode.Rd
 e94aa9d652a67a3842bd87d8183041d5 *man/sumResult_MinGain.Rd
+2c5c93c64e5c54e85b95c5e8dd5ff8ca *vignettes/v.Rmd

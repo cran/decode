@@ -1,0 +1,102 @@
+---
+title: "Differential Co-Expression and Differential Expression Analysis"
+author: "Thomas Lui"
+date: "Thursday, March 15, 2015"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{DECODE }
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+### Package description
+Integrated differential expression (DE) and differential co-expression (DC) analysis on gene expression data based on DECODE (**D**iffer**E**ntial **CO**-expression and **D**ifferential **E**xpression) algorithm. Given a set of gene expression data and functional gene set data, the program will return a table summary of the selected gene sets with high differential co-expression and high differential expression (HDC-HDE).
+
+### Input gene expression data format
+
+**Data format:**
+
+* Columns:
+    + Columns are tab separated
+    
+    + Column 1: Official gene symbol
+
+    + Column 2: Probe ID
+
+    + Starting from column 3: Expression for different samples
+
+* Rows:
+    + Row 1 (starting from column 3): Sample class ("1" indicates control group; "2" indicates case group)
+    
+    + Row 2: Sample id
+    
+    + Starting from row 3: Expression for different genes
+
+* An example for data format:
+
+geneName | probeID | 2 | 2 | 2 | 1 | 1 | 1
+-------- | ------- | - | - | - | - | - | - 
+- | - | Case Sample 1 | Case Sample 2 | Case Sample 3 | Control Sample 1 | Control Sample 2 | Control Sample 3
+7A5 | ILMN_1762337 | 5.12621 | 5.19419 | 5.06645 | 5.40649 | 5.51259 | 5.38700
+A1BG | ILMN_2055271 | 5.63504 | 5.68533 | 5.66251 | 5.37466 | 5.43955 | 5.50973
+A1CF | ILMN_2383229 | 5.41543 | 5.58543 | 5.43239 | 5.49634 | 5.62685 | 5.36962
+A26C3 | ILMN_1653355 | 5.56713 | 5.55470 | 5.59547 | 5.46895 | 5.49622 | 5.50094
+A2BP1 | ILMN_1814316 | 5.23016 | 5.33808 | 5.31413 | 5.30586 | 5.40108 | 5.31855
+A2M | ILMN_1745607 | 7.65332 | 6.56431 | 8.20163 | 9.19837 | 9.04295 | 10.1448
+A2ML1 | ILMN_2136495 | 5.53532 | 5.93801 | 5.33728 | 5.36676 | 5.79942 | 5.13974
+A3GALT2 | ILMN_1668111 | 5.18578 | 5.35207 | 5.30554 | 5.26107 | 5.26536 | 5.28932
+A4GALT | ILMN_1735045 | 6.34751 | 5.56750 | 6.92335 | 7.49523 | 7.12119 | 6.54748
+A4GNT | ILMN_1680754 | 5.26417 | 5.28596 | 5.27560 | 5.28830 | 5.08440 | 5.44869
+
+
+### Input gene set data format
+
+**Data format:**
+
+* Rows:
+    + Each row consists of a gene set (including gene set names, id, and genes)
+
+* Columns:
+    + Columns are tab separated
+
+    + Column 1: Name of gene set
+
+    + Column 2: Gene set ID (e.g. GO ID)
+
+    + Starting from column 3: Genes (using official gene symbols) in the gene set 
+
+
+* An example for data format:
+
+Column 1 | Column 2 | Column 3, 4, ...
+-------- | ------- | - 
+positive regulation of epidermal growth factor-activated receptor activity | GO 0045741 | EREG	FBXW7	EPGN	ADAM17	ADRA2C	ADRA2A	TGFA	EGF
+pyrimidine-containing compound salvage | GO 0008655 | UPP1	TYMP	TK1	UPP2	UCKL1	CDA	TK2	UCK1	DCK
+
+
+### To load the package:
+```{r}
+library(decode)
+```
+
+### Example 1:
+Runing a smaller set of gene expression data with 50 genes.
+```{r}
+path = system.file('extdata', package='decode')
+geneSetInputFile = file.path(path, "geneSet.txt")
+geneExpressionFile = file.path(path, "Expression_data_50genes.txt")
+runDecode(geneSetInputFile, geneExpressionFile)
+
+```
+
+### Example 2:
+Running a larger set of gene expression data with 1400 genes.
+It will take ~16 minutes to complete. (Computer used: An Intel Core i7-4600 processor, 2.69 GHz, 8 GB RAM)
+
+```
+path = system.file('extdata', package='decode')
+geneSetInputFile = file.path(path, "geneSet.txt")
+geneExpressionFile = file.path(path, "Expression_data_1400genes.txt")
+runDecode(geneSetInputFile, geneExpressionFile)
+```
+

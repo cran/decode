@@ -10,7 +10,7 @@
 #' runDecode("/extdata/geneSet.txt","/extdata/Expression_data_1400genes.txt")
 #'
 #' The sample data with 1400 genes takes 16 minutes to complete. (Computer used: An Intel Core i7-4600 processor, 2.69 GHz, 8 GB RAM)
-#' @title Differential Co-expression and Differential Expression Analysis
+#' @title Differential Co-Expression and Differential Expression Analysis
 #' @description Given a set of gene expression data and functional gene set data, the program will return a table summary for the selected gene sets with high differential co-expression and high differential expression (HDC-HDE). User need to specify the input paths for the gene expression data and functional gene set data.
 #' @param geneSetInputFile Path for functional gene set data
 #' @param geneExpressionFile Path for gene expression data
@@ -84,8 +84,13 @@
 #' apoptotic signaling pathway   GO\\GO:0097190   ITPR1   PTH   DNAJC10   HINT1 ...
 #'
 #'
-#' @examples
-#' runDecode("/extdata/geneSet.txt","/extdata/Expression_data_50genes.txt")
+#'@examples
+#'\dontrun{
+#' path = system.file('extdata', package='decode')
+#' geneSetInputFile = file.path(path, "geneSet.txt")
+#' geneExpressionFile = file.path(path, "Expression_data_50genes.txt")
+#' runDecode(geneSetInputFile, geneExpressionFile)
+#'}
 #' @export
 ##########################################################################
 # DECODE  (c) Copyright 2014 by The Hong Kong Polytechnic University, Department of Health Technology and Informatics 
@@ -94,10 +99,7 @@
 # charged for it and provided that this copyright notice is not removed.
 ##########################################################################
 runDecode =function(geneSetInputFile, geneExpressionFile) {
-  geneSetInputFile = paste0(system.file(package = "decode"), geneSetInputFile) 
-  geneExpressionFile = paste0(system.file(package = "decode"), geneExpressionFile) 
-  print (getwd())
-  print (geneExpressionFile)
+    
   # gene set data
 #  geneSetInputFile = 'inst\\extdata\\geneSet.txt'
   # gene expression data
