@@ -19,7 +19,7 @@ sumResult_MinGain = function() {
 	
   outputFileName = "out_summary.txt"
   threshold_optimalChi=0.05
-  minSupport=3
+  minSupport=1
   
 
   dim_rawData=dim(rawData)
@@ -52,7 +52,7 @@ sumResult_MinGain = function() {
   highR_highDE_partition[1:MaxRow,"Gain_over_DE"]=(as.matrix(rawData[1:MaxRow,tempCol+13]) - as.matrix(rawData[1:MaxRow,tempCol+7])) 
   highR_highDE_partition[1:MaxRow,"Gain_over_DC"]=(as.matrix(rawData[1:MaxRow,tempCol+13])- as.matrix(rawData[1:MaxRow,tempCol+9]))
   highR_highDE_partition[1:MaxRow,"Min_Gain"]=apply(cbind(highR_highDE_partition[1:MaxRow,"Gain_over_DE"], highR_highDE_partition[1:MaxRow,"Gain_over_DC"]),1,min)
-  unlink("temp")
+  #unlink("temp")
 
 ###########
 # summary function for each partition

@@ -53,13 +53,17 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">Differential Co-Expression and Differential Expression Analysis</h1>
 <h4 class="author"><em>Thomas Lui</em></h4>
-<h4 class="date"><em>Thursday, March 15, 2015</em></h4>
+<h4 class="date"><em>Sunday, July 12, 2015</em></h4>
 </div>
 
 
 <div id="package-description" class="section level3">
 <h3>Package description</h3>
 <p>Integrated differential expression (DE) and differential co-expression (DC) analysis on gene expression data based on DECODE (<strong>D</strong>iffer<strong>E</strong>ntial <strong>CO</strong>-expression and <strong>D</strong>ifferential <strong>E</strong>xpression) algorithm. Given a set of gene expression data and functional gene set data, the program will return a table summary of the selected gene sets with high differential co-expression and high differential expression (HDC-HDE).</p>
+</div>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<p>Lui, TWH, Tsui, NBY, Chan, LWC, SP Siu, PM, Wong, C, Yung, BYM. (2015) DECODE: an integrated differential co-expression and differential expression analysis of gene expression data. BMC Bioinformatics, May 31;16:182. <a href="http://www.biomedcentral.com/1471-2105/16/182?fmt_math=yes&amp;fmt_math_check=on" class="uri">http://www.biomedcentral.com/1471-2105/16/182?fmt_math=yes&amp;fmt_math_check=on</a></p>
 </div>
 <div id="input-gene-expression-data-format" class="section level3">
 <h3>Input gene expression data format</h3>
@@ -252,7 +256,15 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </div>
 <div id="example-1" class="section level3">
 <h3>Example 1:</h3>
-<p>Runing a smaller set of gene expression data with 50 genes.</p>
+<p>Running a larger set of gene expression data with 1400 genes. It will take ~16 minutes to complete. (Computer used: An Intel Core i7-4600 processor, 2.69 GHz, 8 GB RAM)</p>
+<pre><code>path = system.file('extdata', package='decode')
+geneSetInputFile = file.path(path, &quot;geneSet.txt&quot;)
+geneExpressionFile = file.path(path, &quot;Expression_data_1400genes.txt&quot;)
+runDecode(geneSetInputFile, geneExpressionFile)</code></pre>
+</div>
+<div id="example-2" class="section level3">
+<h3>Example 2:</h3>
+<p>A smaller set of gene expression data with 50 genes to satisfy CRAN’s submission requirement. (No results will be generated)</p>
 <pre class="sourceCode r"><code class="sourceCode r">path =<span class="st"> </span><span class="kw">system.file</span>(<span class="st">'extdata'</span>, <span class="dt">package=</span><span class="st">'decode'</span>)
 geneSetInputFile =<span class="st"> </span><span class="kw">file.path</span>(path, <span class="st">&quot;geneSet.txt&quot;</span>)
 geneExpressionFile =<span class="st"> </span><span class="kw">file.path</span>(path, <span class="st">&quot;Expression_data_50genes.txt&quot;</span>)
@@ -368,14 +380,6 @@ geneExpressionFile =<span class="st"> </span><span class="kw">file.path</span>(p
 ## [1] &quot;Processing raw results...&quot;
 ## [1] &quot;Summarizing functional gene set results...&quot;
 ## [1] &quot;Done. Result is saved in out_summary.txt&quot;</code></pre>
-</div>
-<div id="example-2" class="section level3">
-<h3>Example 2:</h3>
-<p>Running a larger set of gene expression data with 1400 genes. It will take ~16 minutes to complete. (Computer used: An Intel Core i7-4600 processor, 2.69 GHz, 8 GB RAM)</p>
-<pre><code>path = system.file('extdata', package='decode')
-geneSetInputFile = file.path(path, &quot;geneSet.txt&quot;)
-geneExpressionFile = file.path(path, &quot;Expression_data_1400genes.txt&quot;)
-runDecode(geneSetInputFile, geneExpressionFile)</code></pre>
 </div>
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Differential Co-Expression and Differential Expression Analysis"
 author: "Thomas Lui"
-date: "Thursday, March 15, 2015"
+date: "Sunday, July 12, 2015"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{DECODE }
@@ -11,6 +11,10 @@ vignette: >
 
 ### Package description
 Integrated differential expression (DE) and differential co-expression (DC) analysis on gene expression data based on DECODE (**D**iffer**E**ntial **CO**-expression and **D**ifferential **E**xpression) algorithm. Given a set of gene expression data and functional gene set data, the program will return a table summary of the selected gene sets with high differential co-expression and high differential expression (HDC-HDE).
+
+### Reference
+Lui, TWH, Tsui, NBY, Chan, LWC, SP Siu, PM, Wong, C, Yung, BYM. (2015) DECODE: an integrated differential co-expression and differential expression analysis of gene expression data. BMC Bioinformatics, May 31;16:182.
+http://www.biomedcentral.com/1471-2105/16/182?fmt_math=yes&fmt_math_check=on
 
 ### Input gene expression data format
 
@@ -80,16 +84,6 @@ library(decode)
 ```
 
 ### Example 1:
-Runing a smaller set of gene expression data with 50 genes.
-```{r}
-path = system.file('extdata', package='decode')
-geneSetInputFile = file.path(path, "geneSet.txt")
-geneExpressionFile = file.path(path, "Expression_data_50genes.txt")
-runDecode(geneSetInputFile, geneExpressionFile)
-
-```
-
-### Example 2:
 Running a larger set of gene expression data with 1400 genes.
 It will take ~16 minutes to complete. (Computer used: An Intel Core i7-4600 processor, 2.69 GHz, 8 GB RAM)
 
@@ -100,3 +94,14 @@ geneExpressionFile = file.path(path, "Expression_data_1400genes.txt")
 runDecode(geneSetInputFile, geneExpressionFile)
 ```
 
+
+
+### Example 2:
+A smaller set of gene expression data with 50 genes to satisfy CRAN's submission requirement. (No results will be generated)
+```{r}
+path = system.file('extdata', package='decode')
+geneSetInputFile = file.path(path, "geneSet.txt")
+geneExpressionFile = file.path(path, "Expression_data_50genes.txt")
+runDecode(geneSetInputFile, geneExpressionFile)
+
+```

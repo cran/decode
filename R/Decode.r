@@ -84,6 +84,7 @@
 #' apoptotic signaling pathway   GO\\GO:0097190   ITPR1   PTH   DNAJC10   HINT1 ...
 #'
 #'
+#' @import utils stats
 #'@examples
 #'\dontrun{
 #' path = system.file('extdata', package='decode')
@@ -99,7 +100,8 @@
 # charged for it and provided that this copyright notice is not removed.
 ##########################################################################
 runDecode =function(geneSetInputFile, geneExpressionFile) {
-    
+
+
   # gene set data
 #  geneSetInputFile = 'inst\\extdata\\geneSet.txt'
   # gene expression data
@@ -247,8 +249,7 @@ runDecode =function(geneSetInputFile, geneExpressionFile) {
   # identify best associated functional gene sets for each partitions
   ########################################### 
   outputFileName = "temp"
-  openFileToWrite(outputFileName)
-  
+ 
   bestAssoGeneSet_HC_HD=data.frame(index= double(),name=character(), obsA= double(), expA= double(), pValue= double(), matchedGene=list(), stringsAsFactors = FALSE,LD= double(), HD= double(), LC= double(), HC= double(), LC_LD= double(), LC_HD= double(), HC_LD= double(), HC_HD= double())
 
   # import files to identify best associated functional gene sets for each partitions
@@ -301,6 +302,7 @@ printOnePartitionResult = function(significanceLevel,tempAssoGeneSet) {
   # if gene set is significant 
   if (tempPValue<significanceLevel) {
     tempGeneSetIndex = tempAssoGeneSet[1,"index"]
+
 
     cat(sprintf("%s\t",pathway[tempGeneSetIndex,"name"]))
     cat(sprintf("%s\t",pathway[tempGeneSetIndex,"categoryInfo"]))
